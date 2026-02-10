@@ -1,0 +1,108 @@
+import { useEffect, useRef } from "react";
+
+export default function CursorShadow() {
+  const dot = useRef(null);
+  const ring = useRef(null);
+  const pos = useRef({ x: 0, y: 0, tx: 0, ty: 0, visible: false });
+
+  useEffect(() => {
+    const show = () => {
+      pos.current.visible = true;
+      if (dot.current && ring.current) {
+        dot.current.style.opacity = 1;
+        ring.current.style.opacity = 1;
+      }
+    };
+
+    const hide = () => {
+      pos.current.visible = false;
+      if (dot.current && ring.current) {
+        dot.current.style.opacity = 0;
+        ring.current.style.opacity = 0;
+      }
+    };
+
+    const move = e => {
+      if (!pos.current.visible) {
+        show();
+      }
+      pos.current.tx = e.clientX;
+      pos.current.ty = e.clientY;
+    };
+
+    const handleWindowOut = e => {
+      if (!e.relatedTarget && !e.toElement) {
+        hide();
+      }
+    };
+
+    const updateInstant = () => {
+      if (!pos.current.visible || !dot.current || !ring.current) {
+        return;
+      }
+
+      pos.current.x = pos.current.tx;
+      pos.current.y = pos.current.ty;
+      dot.current.style.transform = `translate3d(${pos.current.tx}px, ${pos.current.ty}px, 0) translate(-50%, -50%)`;
+      ring.current.style.transform = `translate3d(${pos.current.x}px, ${pos.current.y}px, 0) translate(-50%, -50%)`;
+    };
+
+    const loop = () => {
+      if (pos.current.visible && dot.current && ring.current) {
+        pos.current.x += (pos.current.tx - pos.current.x) * 0.25;
+        pos.current.y += (pos.current.ty - pos.current.y) * 0.25;
+
+        dot.current.style.transform = `translate3d(${pos.current.tx}px, ${pos.current.ty}px, 0) translate(-50%, -50%)`;
+        ring.current.style.transform = `translate3d(${pos.current.x}px, ${pos.current.y}px, 0) translate(-50%, -50%)`;
+      }
+
+      requestAnimationFrame(loop);
+    };
+
+    window.addEventListener("mousemove", move);
+    window.addEventListener("mouseout", handleWindowOut);
+    window.addEventListener("scroll", updateInstant, { passive: true });
+
+    hide();
+    loop();
+
+    return () => {
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("mouseout", handleWindowOut);
+      window.removeEventListener("scroll", updateInstant);
+    };
+  }, []);
+
+  return (
+    <>
+      {/* Core dot */}
+      <div
+        ref={dot}
+        className="
+          fixed top-0 left-0
+          w-2 h-2
+          rounded-full
+          bg-gray-800
+          pointer-events-none
+          z-[9999]
+          transition-opacity duration-150
+        "
+      />
+
+      {/* Sharp ring (crisp like your screenshot) */}
+      <div
+        ref={ring}
+        className="
+          fixed top-0 left-0
+          w-6 h-6
+          rounded-full
+          border-2 border-gray-800
+          pointer-events-none
+          z-[9998]
+          transition-opacity duration-150
+
+        "
+      />
+    </>
+  );
+}
