@@ -4,8 +4,6 @@ export default function CursorShadow() {
   const dot = useRef(null);
   const ring = useRef(null);
   const pos = useRef({
-    dx: 0,
-    dy: 0,
     rx: 0,
     ry: 0,
     tx: 0,
@@ -36,6 +34,10 @@ export default function CursorShadow() {
       }
       pos.current.tx = e.clientX;
       pos.current.ty = e.clientY;
+
+      if (dot.current) {
+        dot.current.style.transform = `translate3d(${pos.current.tx}px, ${pos.current.ty}px, 0) translate(-50%, -50%)`;
+      }
     };
 
     const handleWindowOut = e => {
@@ -49,22 +51,17 @@ export default function CursorShadow() {
         return;
       }
 
-      pos.current.dx = pos.current.tx;
-      pos.current.dy = pos.current.ty;
       pos.current.rx = pos.current.tx;
       pos.current.ry = pos.current.ty;
-      dot.current.style.transform = `translate3d(${pos.current.dx}px, ${pos.current.dy}px, 0) translate(-50%, -50%)`;
+      dot.current.style.transform = `translate3d(${pos.current.tx}px, ${pos.current.ty}px, 0) translate(-50%, -50%)`;
       ring.current.style.transform = `translate3d(${pos.current.rx}px, ${pos.current.ry}px, 0) translate(-50%, -50%)`;
     };
 
     const loop = () => {
-      if (pos.current.visible && dot.current && ring.current) {
-        pos.current.dx += (pos.current.tx - pos.current.dx) * 0.20;
-        pos.current.dy += (pos.current.ty - pos.current.dy) * 0.20;
-        pos.current.rx += (pos.current.tx - pos.current.rx) * 0.06;
-        pos.current.ry += (pos.current.ty - pos.current.ry) * 0.06;
+      if (pos.current.visible && ring.current) {
+        pos.current.rx += (pos.current.tx - pos.current.rx) * 0.08;
+        pos.current.ry += (pos.current.ty - pos.current.ry) * 0.08;
 
-        dot.current.style.transform = `translate3d(${pos.current.dx}px, ${pos.current.dy}px, 0) translate(-50%, -50%)`;
         ring.current.style.transform = `translate3d(${pos.current.rx}px, ${pos.current.ry}px, 0) translate(-50%, -50%)`;
       }
 
