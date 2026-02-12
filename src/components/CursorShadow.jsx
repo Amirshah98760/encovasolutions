@@ -59,10 +59,10 @@ export default function CursorShadow() {
 
     const loop = () => {
       if (pos.current.visible && dot.current && ring.current) {
-        pos.current.dx += (pos.current.tx - pos.current.dx) * 0.15;
-        pos.current.dy += (pos.current.ty - pos.current.dy) * 0.15;
-        pos.current.rx += (pos.current.tx - pos.current.rx) * 0.05;
-        pos.current.ry += (pos.current.ty - pos.current.ry) * 0.05;
+        pos.current.dx += (pos.current.tx - pos.current.dx) * 0.20;
+        pos.current.dy += (pos.current.ty - pos.current.dy) * 0.20;
+        pos.current.rx += (pos.current.tx - pos.current.rx) * 0.06;
+        pos.current.ry += (pos.current.ty - pos.current.ry) * 0.06;
 
         dot.current.style.transform = `translate3d(${pos.current.dx}px, ${pos.current.dy}px, 0) translate(-50%, -50%)`;
         ring.current.style.transform = `translate3d(${pos.current.rx}px, ${pos.current.ry}px, 0) translate(-50%, -50%)`;
