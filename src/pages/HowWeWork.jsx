@@ -12,7 +12,7 @@ import maintanence from "../assets/howweworkAssets/maintanence.svg";
 
 const HowWeWork = () => {
   return (
-    <div className="bg-white pt-10">
+    <div className="bg-white pt-3">
       {/* Hero Section */}
       <section className="relative py-20 bg-gray-100">
         <div
@@ -206,7 +206,7 @@ const HowWeWork = () => {
             </div>
 
             {/* Step 5: Quality Assurance */}
-            <div className="flex flex-col md:flex-row gap-6 items-start">
+            <div className="flex flex-col md:flex-row gap-6 items-start sm:w-full! sm:items-center ">
               <Card className="flex-1 shadow-md p-6 border-2 border-gray-300">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Quality Assurance</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
@@ -222,10 +222,10 @@ const HowWeWork = () => {
                   <div>
                     <h4 className="font-semibold text-gray-600 mb-2 text-lg">Quality Control</h4>
                     <ul className="space-y-1 text-gray-600 [&>a]:text-gray-600 [&>li]:text-base [&>li]:text-normal">
-                      <li>• Manual QA</li>
-                      <li>• Cross-browser testing</li>
-                      <li>• Device compatibility</li>
-                      <li>• Usability testing</li>
+                      <li>• Manual QA testing</li>
+                      <li>• Cross-browser Compatibility testing</li>
+                      <li>• Device compatibility checks</li>
+                      <li>• Usability and Experience Testing</li>
                     </ul>
                   </div>
                   <div>
@@ -239,7 +239,7 @@ const HowWeWork = () => {
                   </div>
                 </div>
               </Card>
-              <div className="flex-shrink-0">
+              <div className= "flex-shrink-0">
                 <div className="w-16 h-16 bg-[#5B6B7E] rounded-lg flex items-center justify-center">
                   <img src={qa} alt="QA" className="w-8 h-8" />
                 </div>
@@ -300,79 +300,97 @@ const HowWeWork = () => {
 
           <div className="relative">
             {/* Vertical Dotted Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-px border-l-2 border-solid border-gray-300 "></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-px border-l-2 border-solid border-gray-300  "></div>
 
             <div className="space-y-16">
               {/* Step 1 - Left Side */}
-              <div className="relative flex items-center ">
-                <div className="w-1/2 pr-12 text-right ">
+              <div className="relative flex items-center">
+                <div className="w-1/2 pr-12 text-right">
+                  <div className="flex justify-end mb-2">
+                    <div className="w-8 h-8 bg-[#6B7280] rounded-full flex items-center justify-center">
+                      <span className="text-white font-semibold text-xs">1</span>
+                    </div>
+                  </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Technical Scope</h3>
                   <p className="text-gray-600">We analyze your requirements and define the technical scope of the project with detailed specifications.</p>
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#6B7280] rounded-full flex items-center justify-center z-10">
-                  <span className="text-white font-semibold text-sm">1</span>
-                </div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-400 rounded-full"></div>
                 <div className="w-1/2 pl-12"></div>
               </div>
 
               {/* Step 2 - Right Side */}
               <div className="relative flex items-center ">
                 <div className="w-1/2 pr-12"></div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#6B7280] rounded-full flex items-center justify-center z-10">
-                  <span className="text-white font-semibold text-sm">2</span>
-                </div>
                 <div className="w-1/2 pl-12">
+                  <div className="flex justify-start mb-2">
+                    <div className="w-8 h-8 bg-[#6B7280] rounded-full flex items-center justify-center">
+                      <span className="text-white font-semibold text-xs">2</span>
+                    </div>
+                  </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Planning and Design</h3>
                   <p className="text-gray-600">Our team creates comprehensive plans and designs that align with your business objectives.</p>
                 </div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-400 rounded-full"></div>
               </div>
 
               {/* Step 3 - Left Side */}
               <div className="relative flex items-center">
                 <div className="w-1/2 pr-12 text-right">
+                  <div className="flex justify-end mb-2">
+                    <div className="w-8 h-8 bg-[#6B7280] rounded-full flex items-center justify-center">
+                      <span className="text-white font-semibold text-xs">3</span>
+                    </div>
+                  </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Software Design</h3>
                   <p className="text-gray-600">We design the software architecture and create detailed technical documentation.</p>
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#6B7280] rounded-full flex items-center justify-center z-10">
-                  <span className="text-white font-semibold text-sm">3</span>
-                </div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-400 rounded-full"></div>
                 <div className="w-1/2 pl-12"></div>
               </div>
 
               {/* Step 4 - Right Side */}
               <div className="relative flex items-center">
                 <div className="w-1/2 pr-12"></div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#6B7280] rounded-full flex items-center justify-center z-10">
-                  <span className="text-white font-semibold text-sm">4</span>
-                </div>
                 <div className="w-1/2 pl-12">
+                  <div className="flex justify-start mb-2">
+                    <div className="w-8 h-8 bg-[#6B7280] rounded-full flex items-center justify-center">
+                      <span className="text-white font-semibold text-xs">4</span>
+                    </div>
+                  </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Software Development</h3>
                   <p className="text-gray-600">Agile development process with regular updates and continuous integration.</p>
                 </div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-400 rounded-full"></div>
               </div>
 
               {/* Step 5 - Left Side */}
               <div className="relative flex items-center">
                 <div className="w-1/2 pr-12 text-right">
+                  <div className="flex justify-end mb-2">
+                    <div className="w-8 h-8 bg-[#6B7280] rounded-full flex items-center justify-center">
+                      <span className="text-white font-semibold text-xs">5</span>
+                    </div>
+                  </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Quality Assurance</h3>
                   <p className="text-gray-600">Rigorous testing to ensure the highest quality and performance standards.</p>
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#6B7280] rounded-full flex items-center justify-center z-10">
-                  <span className="text-white font-semibold text-sm">5</span>
-                </div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-400 rounded-full"></div>
                 <div className="w-1/2 pl-12"></div>
               </div>
 
               {/* Step 6 - Right Side */}
               <div className="relative flex items-center">
                 <div className="w-1/2 pr-12"></div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 bg-[#6B7280] rounded-full flex items-center justify-center z-10">
-                  <span className="text-white font-semibold text-sm">6</span>
-                </div>
                 <div className="w-1/2 pl-12">
+                  <div className="flex justify-start mb-2">
+                    <div className="w-8 h-8 bg-[#6B7280] rounded-full flex items-center justify-center">
+                      <span className="text-white font-semibold text-xs">6</span>
+                    </div>
+                  </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Maintenance</h3>
                   <p className="text-gray-600">Ongoing support and maintenance to keep your software running smoothly.</p>
                 </div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-400 rounded-full border-2 border-gray-400"></div>
               </div>
             </div>
           </div>

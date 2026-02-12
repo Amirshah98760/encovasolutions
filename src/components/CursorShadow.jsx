@@ -3,7 +3,15 @@ import { useEffect, useRef } from "react";
 export default function CursorShadow() {
   const dot = useRef(null);
   const ring = useRef(null);
-  const pos = useRef({ x: 0, y: 0, tx: 0, ty: 0, visible: false });
+  const pos = useRef({
+    dx: 0,
+    dy: 0,
+    rx: 0,
+    ry: 0,
+    tx: 0,
+    ty: 0,
+    visible: false
+  });
 
   useEffect(() => {
     const show = () => {
@@ -41,19 +49,23 @@ export default function CursorShadow() {
         return;
       }
 
-      pos.current.x = pos.current.tx;
-      pos.current.y = pos.current.ty;
-      dot.current.style.transform = `translate3d(${pos.current.tx}px, ${pos.current.ty}px, 0) translate(-50%, -50%)`;
-      ring.current.style.transform = `translate3d(${pos.current.x}px, ${pos.current.y}px, 0) translate(-50%, -50%)`;
+      pos.current.dx = pos.current.tx;
+      pos.current.dy = pos.current.ty;
+      pos.current.rx = pos.current.tx;
+      pos.current.ry = pos.current.ty;
+      dot.current.style.transform = `translate3d(${pos.current.dx}px, ${pos.current.dy}px, 0) translate(-50%, -50%)`;
+      ring.current.style.transform = `translate3d(${pos.current.rx}px, ${pos.current.ry}px, 0) translate(-50%, -50%)`;
     };
 
     const loop = () => {
       if (pos.current.visible && dot.current && ring.current) {
-        pos.current.x += (pos.current.tx - pos.current.x) * 0.25;
-        pos.current.y += (pos.current.ty - pos.current.y) * 0.25;
+        pos.current.dx += (pos.current.tx - pos.current.dx) * 0.15;
+        pos.current.dy += (pos.current.ty - pos.current.dy) * 0.15;
+        pos.current.rx += (pos.current.tx - pos.current.rx) * 0.05;
+        pos.current.ry += (pos.current.ty - pos.current.ry) * 0.05;
 
-        dot.current.style.transform = `translate3d(${pos.current.tx}px, ${pos.current.ty}px, 0) translate(-50%, -50%)`;
-        ring.current.style.transform = `translate3d(${pos.current.x}px, ${pos.current.y}px, 0) translate(-50%, -50%)`;
+        dot.current.style.transform = `translate3d(${pos.current.dx}px, ${pos.current.dy}px, 0) translate(-50%, -50%)`;
+        ring.current.style.transform = `translate3d(${pos.current.rx}px, ${pos.current.ry}px, 0) translate(-50%, -50%)`;
       }
 
       requestAnimationFrame(loop);
@@ -99,7 +111,7 @@ export default function CursorShadow() {
           border-2 border-gray-800
           pointer-events-none
           z-[9998]
-          transition-opacity duration-150
+          transition-opacity duration-150 
 
         "
       />

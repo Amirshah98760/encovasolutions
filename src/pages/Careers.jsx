@@ -62,7 +62,7 @@ const Careers = () => {
   ];
 
   return (
-    <div className="bg-white pt-10">
+    <div className="bg-white pt-3.5">
       {/* Hero Section */}
       <section className="relative py-20 bg-gray-100">
         {/* Background Image */}

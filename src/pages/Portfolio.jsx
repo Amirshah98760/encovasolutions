@@ -23,7 +23,7 @@ const Portfolio = () => {
     : siteConfig.portfolio.filter(p => p.category === activeFilter);
 
   return (
-    <div className="bg-white pt-10">
+    <div className="bg-white pt-3">
       {/* Hero Section */}
       <section className="relative py-20 bg-gray-100">
         <div

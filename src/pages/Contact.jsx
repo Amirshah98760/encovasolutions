@@ -198,7 +198,7 @@ const Contact = () => {
 
 
   return (
-    <div className="bg-white pt-12">
+    <div className="bg-white pt-5">
 
 
       {/* Hero Section */}

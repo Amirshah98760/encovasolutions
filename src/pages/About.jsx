@@ -28,9 +28,9 @@ import support from "../assets/aboutAssets/support.svg";
 
 const About = () => {
   return (
-    <div className="bg-white pt-10">
+    <div className="bg-white pt-4">
       {/* Hero Section */}
-      <section className="relative py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28 bg-gray-100">
+      <section className="relative py-10 sm:py-16 md:py-20 lg:py-20 xl:py-28 bg-gray-100">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${AboutHeroImage})` }}
@@ -350,6 +350,7 @@ const About = () => {
                     href={member.social.linkedin}
                     className="text-gray-500 hover:text-gray-700 transition-colors"
                     aria-label="LinkedIn"
+                    target="_blank"
                   >
                     <svg
                       className="w-5 h-5"

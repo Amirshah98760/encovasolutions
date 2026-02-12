@@ -46,9 +46,9 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  isActive(link.path) 
-                    ? 'text-gray-900 underline underline-offset-4 decoration-1 decoration-gray-900' 
+                className={`navlink-with-dot  text-base font-medium transition-colors duration-200 hover:font-semibold ${
+                  isActive(link.path)
+                    ? 'text-gray-900 underline underline-offset-4 decoration-1 decoration-gray-900'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -96,7 +96,7 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`text-base font-medium transition-colors duration-200 ${
+                  className={`text-base font-medium transition-colors duration-200 x   ${
                     isActive(link.path) 
                       ? 'text-gray-900' 
                       : 'text-gray-600 hover:text-gray-900'
